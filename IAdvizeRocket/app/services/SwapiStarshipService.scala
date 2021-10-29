@@ -25,9 +25,9 @@ class SwapiStarshipService @Inject()(mapper: ShipMapper) {
 
     val query = starship(Some(id))(swapiStarshipView)
     val response = HttpURLConnectionBackend().send(query.toRequest(serverUrl))
-    // TODO ISSUE 2 Handle exceptions when communication error or empty result -> discover pattern matching
     val swapiStarship = response.body match {
       case Right(value) => value.get
+      case Left(exception) => throw new RuntimeException(s"there is an error with swapi response. error : $exception")
     }
     mapper.mapSwapiStarshipToIAdvizeShip(swapiStarship)
   }
@@ -36,10 +36,10 @@ class SwapiStarshipService @Inject()(mapper: ShipMapper) {
 
     val query = allStarships()(swapiAllStarshipsView)
     val response = HttpURLConnectionBackend().send(query.toRequest(serverUrl))
-    // TODO ISSUE 2 Handle exceptions when communication error or empty result -> discover pattern matching
     val swapiStarship = response.body match {
-      case Right(value) => value.get
+      case Right(Some(value)) => value.get
+      case Left(exception) => throw new RuntimeException(s"there is an error with swapi response. error : $exception")
     }
-    mapper.mapSwapiStarshipsToIAdvizeShips(swapiStarship.get.flatten) // TODO CE GET n'est pas clean
+    mapper.mapSwapiStarshipsToIAdvizeShips(swapiStarship.flatten)
   }
 }

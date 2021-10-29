@@ -10,12 +10,12 @@ import scala.concurrent.ExecutionContext
 @Singleton
 class ShipController @Inject()(cc: ControllerComponents, shipService: ShipService)(implicit exec: ExecutionContext) extends AbstractController(cc) {
 
-  def ship(from: String, shipId: String) = Action {
+  def ship(from: String, shipId: String): Action[AnyContent] = Action {
     Ok(Json.toJson(shipService.getShip(from, shipId)))
   }
 
-  def ships() = Action {
-    Ok(Json.toJson(shipService.getShips()))
+  def ships(): Action[AnyContent] = Action {
+    Ok(Json.toJson(shipService.getShips))
   }
 
 }

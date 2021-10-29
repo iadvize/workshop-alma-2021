@@ -1,5 +1,6 @@
 package mapper
 
+import client.SpaceXGraphQLClient.Distance.DistanceView
 import client.SpaceXGraphQLClient.{Distance, Force, Mass, Rocket, RocketEngines, RocketFirstStage, RocketLandingLegs, RocketPayloadWeight, RocketSecondStage, RocketSecondStagePayloadCompositeFairing, RocketSecondStagePayloads}
 import client.SwapiGraphQLClient.Starship
 import model.IAdvizeShip
@@ -24,7 +25,8 @@ class ShipMapper {
       RocketSecondStagePayloadCompositeFairing.RocketSecondStagePayloadCompositeFairingView[Distance.DistanceView, Distance.DistanceView]],
       Force.ForceView]
   ]): IAdvizeShip = {
-    IAdvizeShip(rocket.id.getOrElse(""), rocket.name.getOrElse(""), rocket.`type`.getOrElse(""), rocket.height.get.meters.getOrElse(0), "spaceX") // TODO le premier get n'est pas safe
+    val height = rocket.height.getOrElse(DistanceView(Some(0), Some(0)))
+    IAdvizeShip(rocket.id.getOrElse(""), rocket.name.getOrElse(""), rocket.`type`.getOrElse(""), height.meters.getOrElse(0), "spaceX")
   }
 
   def mapSpaceXRocketsToIAdvizeShips(rockets: Seq[Rocket.RocketView[
