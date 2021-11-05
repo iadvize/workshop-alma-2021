@@ -4,9 +4,7 @@ EXPOSE 9000
 
 WORKDIR /app
 
-COPY . ./
-
-RUN sbt stage
+COPY ./target/universal/stage /app
 
 ## change after /opt/ here docker depending on the build config for the target directory
-CMD ["/app/target/universal/stage/bin/iadvize-rocket-api", "-Dpidfile.path=/dev/null"]
+CMD ["/app/bin/iadvize-rocket-api", "-Dpidfile.path=/dev/null"]
