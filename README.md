@@ -12,7 +12,7 @@ This REST API is then consumed by a frontend application (rocket-app), allowing 
 
 ## back
 
-### techical stack
+### technical stack
 - [scala](https://www.scala-lang.org/)
 - [Play Framework](https://www.playframework.com/)
 - [Caliban](https://ghostdogpr.github.io/caliban/)
@@ -20,7 +20,7 @@ This REST API is then consumed by a frontend application (rocket-app), allowing 
 
 ## front
 
-### techical stack
+### technical stack
 - [TypeScript](https://www.typescriptlang.org/)
 - [React](https://reactjs.org/)
 - [fp-ts](https://gcanti.github.io/fp-ts/)
@@ -31,6 +31,7 @@ This REST API is then consumed by a frontend application (rocket-app), allowing 
 - This will build & run the 2 apps (rocket-api and rocket-app)
 - The front application will be available on [http://localhost:3000](http://localhost:3000)
 - The API can be requested on [http://localhost:9000](http://localhost:9000)
+
 ```shell
 docker compose up
 ```
