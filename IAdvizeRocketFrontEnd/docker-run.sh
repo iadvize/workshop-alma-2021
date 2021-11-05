@@ -1,3 +1,9 @@
+#!/usr/bin/env bash
+
+echo "building front image"
+
+./docker-build.sh
+
 echo "starting dev server on port 3000"
 
 docker run \
@@ -7,4 +13,4 @@ docker run \
     -v /app/node_modules \
     -p 3000:3000 \
     -e CHOKIDAR_USEPOLLING=true \
-    workshop-alma:dev
+    workshop-alma-front:dev
