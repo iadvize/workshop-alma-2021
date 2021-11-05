@@ -1,10 +1,11 @@
 # Workshop ALMA
 
-# Build the docker image
-`docker build -t workshop-alma:dev .` 
+## Build the docker image
+```shell
+./docker-build.sh
+``` 
 
-
-# Start the project
-```
-./start-dev.sh
+## Start the project
+```shell
+./docker-run.sh
 ```

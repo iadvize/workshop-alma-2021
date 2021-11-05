@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+  web:
+    build: ./IAdvizeRocketFrontEnd
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./IAdvizeRocketFrontEnd:/app
+      - /app/node_modules
+  api:
+    build: ./IAdvizeRocketBackEnd
+    ports:
+      - "9000:9000"
