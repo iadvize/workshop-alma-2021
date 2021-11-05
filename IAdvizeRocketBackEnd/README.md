@@ -6,3 +6,15 @@ examples :
 http://localhost:9000/ship/swapi/c3RhcnNoaXBzOjI
 http://localhost:9000/ship/spaceX/falcon9
 http://localhost:9000/ships
+
+### How to?
+
+- build
+```shell
+./docker-build.sh
+```
+
+- run
+```shell
+./docker-run.sh
+```
