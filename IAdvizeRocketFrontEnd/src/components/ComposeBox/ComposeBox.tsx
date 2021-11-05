@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react';
 import styles from './ComposeBox.module.scss';
 
 type Props = {
-  addMessage: (text: string, isMine: boolean) => void;
+  addMessage: (message: { text: string; isMine: boolean }) => void;
   scrollToBottom: () => void;
 };
 
@@ -12,7 +12,7 @@ const ComposeBox = ({ addMessage, scrollToBottom }: Props) => {
   const onAddMessage = useCallback(
     (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
       if (e.key === 'Enter' && composeBoxText.trim() !== '') {
-        addMessage(composeBoxText, true);
+        addMessage({ text: composeBoxText, isMine: true });
         e.preventDefault();
         setComposeBoxText('');
         scrollToBottom();
