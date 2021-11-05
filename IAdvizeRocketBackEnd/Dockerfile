@@ -4,6 +4,8 @@ EXPOSE 9000
 
 WORKDIR /app
 
+RUN sbt stage
+
 COPY ./target/universal/stage /app
 
 ## change after /opt/ here docker depending on the build config for the target directory
