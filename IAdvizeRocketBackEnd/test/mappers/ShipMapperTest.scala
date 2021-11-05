@@ -1,7 +1,7 @@
-package mapper
+package mappers
 
-import client.SwapiGraphQLClient.Starship.StarshipView
-import model.IAdvizeShip
+import clients.SwapiGraphQLClient.Starship.StarshipView
+import models.IAdvizeShip
 import org.scalatestplus.play.PlaySpec
 
 class ShipMapperTest extends PlaySpec {

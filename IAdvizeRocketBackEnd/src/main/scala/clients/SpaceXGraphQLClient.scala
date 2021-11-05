@@ -1,4 +1,4 @@
-package client
+package clients
 
 import caliban.client.CalibanClientError.DecodingError
 import caliban.client.FieldBuilder._
@@ -3032,7 +3032,7 @@ object SpaceXGraphQLClient {
     def mmsi: SelectionBuilder[Ship, Option[Int]] =
       _root_.caliban.client.SelectionBuilder.Field("mmsi", OptionOf(Scalar()))
     def model: SelectionBuilder[Ship, Option[String]] =
-      _root_.caliban.client.SelectionBuilder.Field("model", OptionOf(Scalar()))
+      _root_.caliban.client.SelectionBuilder.Field("models", OptionOf(Scalar()))
     def name: SelectionBuilder[Ship, Option[String]] =
       _root_.caliban.client.SelectionBuilder.Field("name", OptionOf(Scalar()))
     def position[A](
@@ -4627,7 +4627,7 @@ object SpaceXGraphQLClient {
             "name" -> value.name.fold(__NullValue: __Value)(value =>
               implicitly[ArgEncoder[String]].encode(value)
             ),
-            "model" -> value.model.fold(__NullValue: __Value)(value =>
+            "models" -> value.model.fold(__NullValue: __Value)(value =>
               implicitly[ArgEncoder[String]].encode(value)
             ),
             "type" -> value.`type`.fold(__NullValue: __Value)(value =>

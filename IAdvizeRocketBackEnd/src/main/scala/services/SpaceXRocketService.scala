@@ -1,9 +1,9 @@
 package services
 
 import caliban.client.SelectionBuilder
-import client.SpaceXGraphQLClient._
-import mapper.ShipMapper
-import model.IAdvizeShip
+import clients.SpaceXGraphQLClient._
+import mappers.ShipMapper
+import models.IAdvizeShip
 import sttp.client3.UriContext
 
 import javax.inject.Inject

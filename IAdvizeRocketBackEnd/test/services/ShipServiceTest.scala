@@ -1,6 +1,6 @@
 package services
 
-import model.IAdvizeShip
+import models.IAdvizeShip
 import org.scalatestplus.play.PlaySpec
 import org.scalamock.scalatest.MockFactory
 

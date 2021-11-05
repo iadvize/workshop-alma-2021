@@ -1,9 +1,9 @@
-package mapper
+package mappers
 
-import client.SpaceXGraphQLClient.Distance.DistanceView
-import client.SpaceXGraphQLClient.{Distance, Force, Mass, Rocket, RocketEngines, RocketFirstStage, RocketLandingLegs, RocketPayloadWeight, RocketSecondStage, RocketSecondStagePayloadCompositeFairing, RocketSecondStagePayloads}
-import client.SwapiGraphQLClient.Starship
-import model.IAdvizeShip
+import clients.SpaceXGraphQLClient.Distance.DistanceView
+import clients.SpaceXGraphQLClient.{Distance, Force, Mass, Rocket, RocketEngines, RocketFirstStage, RocketLandingLegs, RocketPayloadWeight, RocketSecondStage, RocketSecondStagePayloadCompositeFairing, RocketSecondStagePayloads}
+import clients.SwapiGraphQLClient.Starship
+import models.IAdvizeShip
 
 class ShipMapper {
 

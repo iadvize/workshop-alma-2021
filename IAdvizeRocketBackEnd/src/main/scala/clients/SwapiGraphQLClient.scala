@@ -1,4 +1,4 @@
-package client
+package clients
 
 import caliban.client.FieldBuilder._
 import caliban.client._
@@ -895,7 +895,7 @@ object SwapiGraphQLClient {
       * Orbital Battle Station".
       */
     def model: SelectionBuilder[Starship, Option[String]] =
-      _root_.caliban.client.SelectionBuilder.Field("model", OptionOf(Scalar()))
+      _root_.caliban.client.SelectionBuilder.Field("models", OptionOf(Scalar()))
 
     /** The class of this starship, such as "Starfighter" or "Deep Space Mobile
       * Battlestation"
@@ -1217,7 +1217,7 @@ object SwapiGraphQLClient {
       * Transport".
       */
     def model: SelectionBuilder[Vehicle, Option[String]] =
-      _root_.caliban.client.SelectionBuilder.Field("model", OptionOf(Scalar()))
+      _root_.caliban.client.SelectionBuilder.Field("models", OptionOf(Scalar()))
 
     /** The class of this vehicle, such as "Wheeled" or "Repulsorcraft".
       */

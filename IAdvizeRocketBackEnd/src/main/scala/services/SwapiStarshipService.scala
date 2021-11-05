@@ -1,10 +1,10 @@
 package services
 
 import caliban.client.SelectionBuilder
-import client.SwapiGraphQLClient.Root.{allStarships, starship}
-import client.SwapiGraphQLClient._
-import mapper.ShipMapper
-import model.IAdvizeShip
+import clients.SwapiGraphQLClient.Root.{allStarships, starship}
+import clients.SwapiGraphQLClient._
+import mappers.ShipMapper
+import models.IAdvizeShip
 import sttp.client3._
 
 import javax.inject.Inject

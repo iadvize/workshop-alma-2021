@@ -1,6 +1,6 @@
 package services
 
-import model.IAdvizeShip
+import models.IAdvizeShip
 
 import javax.inject.Inject
 
