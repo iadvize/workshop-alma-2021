@@ -3,6 +3,8 @@ import { v4 as uuid } from 'uuid';
 import { useScrolling } from 'react-use';
 import { Message } from '../domain/Message/Message.entity';
 import { isElementScrolledToBottom } from '../infrastructure/dom/isElementScrolledToBottom';
+import { Ship } from '../domain/Ships/Ships.entity';
+import { shipEntityDecoder } from '../domain/Ships/Ships.api';
 
 const useMessages = () => {
   const messageListRef = useRef<HTMLDivElement>(null);
@@ -13,7 +15,6 @@ const useMessages = () => {
       isMine: false,
       id: uuid(),
     },
-    { text: 'How do you do ?', isMine: false, id: uuid() },
   ]);
 
   const [isSeeLastMessageDisplayed, setIsSeeLastMessageDisplayed] =
@@ -32,7 +33,7 @@ const useMessages = () => {
   }, []);
 
   const addMessage = useCallback(
-    (message: string, isMine: boolean) => {
+    (message: { text: string; isMine: boolean } | Ship) => {
       if (messageListRef.current) {
         const isScrolledToBottom = isElementScrolledToBottom(
           messageListRef.current,
@@ -40,11 +41,13 @@ const useMessages = () => {
 
         setMessages((messages) => [
           ...messages,
-          {
-            text: message,
-            isMine,
-            id: uuid(),
-          },
+          shipEntityDecoder.is(message)
+            ? { ship: message, isMine: false, id: uuid() }
+            : {
+                text: message.text,
+                isMine: message.isMine,
+                id: uuid(),
+              },
         ]);
 
         if (isScrolledToBottom) {

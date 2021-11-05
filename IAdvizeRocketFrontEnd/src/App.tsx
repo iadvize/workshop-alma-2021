@@ -1,10 +1,11 @@
 import React from 'react';
-import classnames from 'classnames';
 import styles from './App.module.scss';
 import iadvizeLogo from './iadvize-logo.png';
 import useMessages from './application/useMessages';
 import useBot from './application/useBot';
 import ComposeBox from './components/ComposeBox/ComposeBox';
+import { messageDecoder } from './domain/Message/Message.api';
+import TextMessage from './components/TextMessage/TextMessage';
 
 function App() {
   const {
@@ -34,18 +35,12 @@ function App() {
           </button>
         )}
         <div className={styles.messageList} ref={messageListRef}>
-          {messages.map(({ isMine, id, text }) => (
-            <div
-              className={classnames(
-                styles.message,
-                { [styles.mine]: isMine },
-                { [styles.other]: !isMine },
-              )}
-              id={id}
-            >
-              {text}
-            </div>
-          ))}
+          {messages.map((message) => {
+            if (messageDecoder.is(message)) {
+              return <TextMessage message={message} />;
+            }
+            return <div>Unknown message type</div>;
+          })}
         </div>
       </div>
       <ComposeBox addMessage={addMessage} scrollToBottom={scrollToBottom} />
