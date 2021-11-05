@@ -43,7 +43,6 @@ class SpaceXRocketService @Inject()(mapper: ShipMapper) {
     // TODO ISSUE 2 Handle exceptions when communication error or empty result -> discover pattern matching
     val spaceXRocket = response.body match {
       case Right(value) => value.get
-      case Left(exception) => throw new RuntimeException(s"there is an error with spacex response. error : $exception")
     }
     mapper.mapSpaceXRocketToIAdvizeShip(spaceXRocket)
   }
@@ -52,9 +51,9 @@ class SpaceXRocketService @Inject()(mapper: ShipMapper) {
 
     val query = Query.rockets()(spaceXRocketView)
     val response = HttpURLConnectionBackend().send(query.toRequest(serverUrl))
+    // TODO ISSUE 2 Handle exceptions when communication error or empty result -> discover pattern matching
     val spaceXRockets = response.body match {
       case Right(value) => value.get
-      case Left(exception) => throw new RuntimeException(s"there is an error with spacex response. error : $exception")
 
     }
     mapper.mapSpaceXRocketsToIAdvizeShips(spaceXRockets.flatten)
