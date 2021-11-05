@@ -2,6 +2,7 @@
   "name": "workshop-alma-front",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:9000",
   "dependencies": {
     "@iadvize-oss/eslint-config": "^2.2.0",
     "@testing-library/jest-dom": "^5.11.4",
