@@ -3,6 +3,8 @@ import { Message } from '../domain/Message/Message.entity';
 import { useSpaceShips } from './useSpaceShips';
 import { Ship } from '../domain/Ships/Ships.entity';
 
+const SHIP_DISPLAY_LIMIT = 15;
+
 const useBot = (
   messages: Message[],
   addMessage: (message: { text: string; isMine: boolean } | Ship) => void,
@@ -38,9 +40,9 @@ const useBot = (
 
       fetchSpaceships().then(async (ships) => {
         // eslint-disable-next-line no-restricted-syntax
-        for (const ship of ships.slice(0, 5)) {
+        for (const ship of ships.slice(0, SHIP_DISPLAY_LIMIT)) {
           // eslint-disable-next-line no-await-in-loop
-          await sendMessageWithDelay(ship, 1000);
+          await sendMessageWithDelay(ship, 500);
         }
       });
     }

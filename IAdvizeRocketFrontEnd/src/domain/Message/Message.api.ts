@@ -6,4 +6,5 @@ export const messageDecoder = t.type({
   isMine: t.boolean,
 });
 
+// eslint-disable-next-line no-warning-comments
 // TODO: please implement a shipMessageDecoder
