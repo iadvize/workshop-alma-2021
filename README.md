@@ -33,7 +33,7 @@ This REST API is then consumed by a frontend application (rocket-app), allowing 
 - The API can be requested on [http://localhost:9000](http://localhost:9000)
 
 ```shell
-docker compose up
+docker-compose up
 ```
 
 - In order to build & launch only the front, or only the back, you can rely on the `./docker-[build|run].sh` scripts located respectively on [./IAdvizeRocketBackEnd](IAdvizeRocketBackEnd) and [./IAdvizeRocketFrontEnd](IAdvizeRocketFrontEnd) 
