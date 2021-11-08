@@ -25,7 +25,7 @@ class ShipServiceTest extends PlaySpec with MockFactory {
       val result = shipService.getShip("swapi", "id")
 
       // Then
-      result.equals(expectedOutputShip) mustBe true
+      result mustBe expectedOutputShip
     }
 
     "be successful and return an spaceX rocket with spaceX request" in {
@@ -44,7 +44,7 @@ class ShipServiceTest extends PlaySpec with MockFactory {
       val result = shipService.getShip("spaceX", "id")
 
       // Then
-      result.equals(expectedOutputShip) mustBe true
+      result mustBe expectedOutputShip
     }
 
     "return an error when requested ship provider does not exist" in {
@@ -62,7 +62,7 @@ class ShipServiceTest extends PlaySpec with MockFactory {
 
       // Then
       result match {
-        case Failure(e) => e mustBe a[UnsupportedOperationException]
+        case Failure(e) => e mustBe an[UnsupportedOperationException]
         case Success(v) => fail(s"Expected the test to fail but got $v instead")
       }
 

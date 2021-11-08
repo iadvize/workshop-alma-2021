@@ -21,7 +21,7 @@ class ShipMapperTest extends PlaySpec {
       val result: IAdvizeShip = shipMapper.mapSwapiStarshipToIAdvizeShip(inputStarShipView)
 
       // Then
-      result.equals(expectedOutputShip) mustBe true
+      result mustBe expectedOutputShip
     }
 
   }
