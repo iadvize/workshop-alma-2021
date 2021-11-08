@@ -26,14 +26,19 @@ This REST API is then consumed by a frontend application (rocket-app), allowing 
 - [fp-ts](https://gcanti.github.io/fp-ts/)
 - [io-ts](https://gcanti.github.io/io-ts/)
 
-### How to compile & run
+## How to compile & run
 
 - This will build & run the 2 apps (rocket-api and rocket-app)
 - The front application will be available on [http://localhost:3000](http://localhost:3000)
 - The API can be requested on [http://localhost:9000](http://localhost:9000)
 
 ```shell
-docker-compose up
+docker-compose up --build
 ```
 
 - In order to build & launch only the front, or only the back, you can rely on the `./docker-[build|run].sh` scripts located respectively on [./IAdvizeRocketBackEnd](IAdvizeRocketBackEnd) and [./IAdvizeRocketFrontEnd](IAdvizeRocketFrontEnd) 
+
+### contacts
+- pierre.gaultier@iadvize.com
+- nicolas.baptiste@iadvize.com
+- francois-xavier.hibon@iadvize.com
